@@ -7,19 +7,19 @@ too_high = 'too high'
 
 def configure_range():
     """ Set the high and low values for the random number """
-    return 1, 10
+    return 1, 10 # Return range between 1-10
 
 
 def generate_secret(low, high):
     """ Generate a secret number for the user to guess """
-    return random.randint(low, high)
+    return random.randint(low, high) 
 
 
 def get_guess():
     """ get user's guess, as an integer number """
-    while True:
+    while True: # Loop over code until user guesses a numeric value
         try:
-            return int(input('Guess the secret number? '))
+            return int(input('Guess the secret number? ')) 
         except:
             print('Input must be a number.')
 
@@ -34,7 +34,7 @@ def check_guess(guess, secret):
         return too_high
 
 def counter(count):
-    count += 1
+    count += 1 # Count the number of guesses each time 
     return count
 
 def main():
@@ -43,7 +43,7 @@ def main():
     secret = generate_secret(low, high)
     count = 0
 
-    while True:
+    while True: # Loop until user correctly guesses number
         guess = get_guess()
         result = check_guess(guess, secret)
         count = counter(count)
@@ -51,10 +51,10 @@ def main():
 
         if result == correct:
             break
-    if count == 1:
-        print('You got it first try!')
+    if count == 1: 
+        print('You got it first try!') # Alert user if they guessed in one try
     else:
-        print(f'Correct. You got it after {count} guesses.')
+        print(f'Correct. You got it after {count} guesses.') # Tell user how many guesses they took
     print('Thanks for playing the game!')
 
 
